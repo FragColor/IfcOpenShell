@@ -251,6 +251,7 @@ namespace IfcGeom {
 				// WR31: The parent context shall not be another geometric representation sub context. 
 			}
 
+			/*
 			if (any_precision_encountered) {
 				// Some arbitrary factor that has proven to work better for the models in the set of test files.
 				lowest_precision_encountered *= 10.;
@@ -265,6 +266,7 @@ namespace IfcGeom {
 			} else {
 				kernel.setValue(IfcGeom::Kernel::GV_PRECISION, 1.e-5);
 			}
+			*/
 
             if (representations->size() == 0) {
                 Logger::Message(Logger::LOG_ERROR, "No geometries found");
@@ -329,6 +331,8 @@ namespace IfcGeom {
 		std::string getLog() const { return Logger::GetLog(); }
 
 		IfcParse::IfcFile* getFile() const { return ifc_file; }
+
+		void setKernelValue(IfcGeom::Kernel::GeomValue var, double value) { kernel.setValue(var, value); }
 
         const std::vector<IfcGeom::filter_t>& filters() const { return filters_; }
         std::vector<IfcGeom::filter_t>& filters() { return filters_; }
